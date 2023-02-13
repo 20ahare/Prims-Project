@@ -11,7 +11,7 @@ class Graph
 		// Adjascency Matrix
 		vector<vector<int>> adj = {};
 
-		// Number of nodes in graph
+		// Number of nodes in graph (initialized to zero)
 		int nodes=0;
 	
 	
@@ -41,6 +41,7 @@ class Graph
 				createEdge(nodes-1, i, weights[i]);
 			}
 		}
+		// Displays accrued adjascency matrix in triangle array form
 		void disp()
 		{
 			for (int i = 0; i < nodes; i++)
@@ -62,9 +63,11 @@ int main()
 	vector<vector<int>> in;
 	int n;
 
+	// Request end number of nodes from user
 	cout << "Number of Nodes: ";
  	cin >> n;
 	in.resize(n, vector<int>(n));
+	// request adjascency matrix from user, in nxn format
 	cout << endl << "Please enter the adjascency matrix of the graph in row order: ";
 	for (int i = 0; i < n; i++)
 	{
@@ -74,12 +77,14 @@ int main()
 		}
 	}
 	
+	// Add vectors to adjascency matrix from input 2d vector 'in' (row by row)
 	for (int i = 0; i < n; i++)
 	{
 		cout << "i = " << i << endl;
 		g.addNode(in[i]);
 	}
 	
+	// Output visual display of adjascency matrix
 	g.disp();
 
 }
